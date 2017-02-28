@@ -1,6 +1,6 @@
-class CreateApplications < ActiveRecord::Migration
+class CreateRegisterdapps < ActiveRecord::Migration
   def change
-    create_table :applications do |t|
+    create_table :registerdapps do |t|
       t.string :title
       t.text :body
       t.references :user, index: true, foreign_key: true

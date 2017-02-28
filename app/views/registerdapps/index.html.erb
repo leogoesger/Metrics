@@ -3,11 +3,11 @@
     <%= link_to "New Application", new_registerdapp_path, class: 'btn btn-success' %>
 </div>
 
-<% @apps.each do |app| %>
+<% @registerdapps.each do |app| %>
 	<div class="media">
      	<div class="media-body">
    			<h4 class="media-heading">
-     			<%= link_to app.title, registerdapp_path(wiki) %>
+     			<%= link_to app.title, registerdapp_path(app) %>
    			</h4>
      	</div>
 	</div>

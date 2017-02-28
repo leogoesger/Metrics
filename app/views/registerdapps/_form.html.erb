@@ -1,23 +1,23 @@
-<%= form_for app do |f| %>
-    <% if app.errors.any? %>
+<%= form_for registerdapp do |f| %>
+    <% if registerdapp.errors.any? %>
       <div class="alert alert-danger">
-        <h4><%= pluralize(app.errors.count, "error") %>.</h4>
+        <h4><%= pluralize(registerdapp.errors.count, "error") %>.</h4>
         <ul>
-          <% app.errors.full_messages.each do |msg| %>
+          <% registerdapp.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
         </ul>
       </div>
     <% end %>
 
-    <%= form_group_tag(app.errors[:title]) do %>
+    <%= form_group_tag(registerdapp.errors[:title]) do %>
       <%= f.label :title %>
-      <%= f.text_field :title, class: 'form-control', placeholder: "Enter app title" %>
+      <%= f.text_field :title, class: 'form-control', placeholder: "Enter Application title" %>
     <% end %>
 
-    <%= form_group_tag(app.errors[:body]) do %>
-      <%= f.label :body %>
-      <%= f.text_area :body, rows: 1, class: 'form-control', placeholder: "Enter app url" %>
+    <%= form_group_tag(registerdapp.errors[:body]) do %>
+      <%= f.label :Url %>
+      <%= f.text_area :body, rows: 1, class: 'form-control', placeholder: "Enter application url" %>
     <% end %>
 
     <%= f.submit "Save", class: 'btn btn-success' %>
