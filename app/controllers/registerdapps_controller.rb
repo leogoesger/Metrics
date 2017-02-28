@@ -13,6 +13,10 @@ class RegisterdappsController < ApplicationController
     @registerdapp = Registerdapp.new
   end
 
+  def edit
+    @registerdapp = Registerdapp.find(params[:id])
+  end
+
   def create
     @registerdapp = Registerdapp.new(registerdapps_params)
 
@@ -28,7 +32,7 @@ class RegisterdappsController < ApplicationController
   def update
   end
 
-  def delete
+  def destroy
     @registerdapp = Registerdapp.find(params[:id])
 
     if @registerdapp.destroy
