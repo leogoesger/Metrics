@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :registerdapps
+
+  resources :registerdapps do
+  	resources :events, except: [:index]
+  end
 
   root 'welcome#index'
   get 'welcome/about'
