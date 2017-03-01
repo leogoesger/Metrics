@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   end
 
   def new
-  	@registerdapp = Registerdapp.find(params[:id])
+  	@registerdapp = Registerdapp.find(params[:registerdapp_id])
   	@event = Event.new
   end
 
@@ -13,14 +13,20 @@ class EventsController < ApplicationController
   end
 
   def create
-  	 @registerdapp = Registerdapp.find(params[:id])
-  	 @event = Event.new
+  	 @registerdapp = Registerdapp.find(params[:registerdapp_id])
+  	 @event = @registerdapp.events.build(event_params)
 
-   end
+     if @event.save
+      flash[:notice] = "Event was saved!"
+      redirect_to [@registerdapp, @event]
+     else
+      flash[:alert] = "There was an error saving the Event!"
+      redirect_to :new
+     end
+  end
 
-   private
- 
-   def event_params
-     params.require(:event).permit(:name)
-   end
+  private
+  def event_params
+    params.require(:event).permit(:name)
+  end
 end
