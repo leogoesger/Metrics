@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :registerdapps do
-  	resources :events, except: [:index]
+  	resources :events
   end
 
   root 'welcome#index'

@@ -1,2 +1,21 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<h1>Event New</h1>
+
+<%= form_for [@registerdapp, @event] do |f| %>
+    <% if @event.errors.any? %>
+      <div class="alert alert-danger">
+        <h4><%= pluralize(@event.errors.count, "error") %>.</h4>
+        <ul>
+          <% @event.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_group_tag(@event.errors[:name]) do %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "Enter Event Name" %>
+    <% end %>
+
+    <%= f.submit "Save", class: 'btn btn-success' %>
+<% end %>
