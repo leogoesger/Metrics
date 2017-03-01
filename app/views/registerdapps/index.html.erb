@@ -1,0 +1,14 @@
+<h1>Applications</h1>
+<div style="margin-top:1.5em;">
+    <%= link_to "New Application", new_registerdapp_path, class: 'btn btn-success' %>
+</div>
+
+<% @registerdapps.each do |app| %>
+	<div class="media">
+     	<div class="media-body">
+   			<h4 class="media-heading">
+     			<%= link_to app.title, registerdapp_path(app) %>
+   			</h4>
+     	</div>
+	</div>
+<% end %>

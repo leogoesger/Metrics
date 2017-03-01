@@ -1,0 +1,5 @@
+<%= @registerdapp.title %> <%= @registerdapp.body %>
+
+<%= link_to "Edit Application", edit_registerdapp_path, class: 'btn btn-success' %>
+
+<%= link_to "Delete Application", @registerdapp, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this?' } %>

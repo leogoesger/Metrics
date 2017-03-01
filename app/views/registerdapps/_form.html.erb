@@ -1,0 +1,24 @@
+<%= form_for registerdapp do |f| %>
+    <% if registerdapp.errors.any? %>
+      <div class="alert alert-danger">
+        <h4><%= pluralize(registerdapp.errors.count, "error") %>.</h4>
+        <ul>
+          <% registerdapp.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_group_tag(registerdapp.errors[:title]) do %>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control', placeholder: "Enter Application title" %>
+    <% end %>
+
+    <%= form_group_tag(registerdapp.errors[:body]) do %>
+      <%= f.label :Url %>
+      <%= f.text_area :body, rows: 1, class: 'form-control', placeholder: "Enter application url" %>
+    <% end %>
+
+    <%= f.submit "Save", class: 'btn btn-success' %>
+<% end %>
