@@ -9,7 +9,8 @@
  end
  
  group :development do
-   gem 'sqlite3'
+   gem 'pg'
+   gem 'rails_12factor'
  end
 
  group :development, :test do
@@ -34,7 +35,8 @@
  gem 'stripe'
  gem 'redcarpet'
  gem 'pundit'
-
+ gem "chartkick"
+ gem 'groupdate'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
